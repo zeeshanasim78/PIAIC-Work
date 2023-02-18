@@ -1,5 +1,0 @@
-1) Learn MetaMask installation, Goerli Faucet
-https://medium.com/@fahershaheen/learn-metamask-installation-goerli-faucet-8da07808aa32
-
-2) Swap Goerli into WETH through Uniswap
-https://medium.com/@fahershaheen/swap-goerli-into-weth-through-uniswap-e72b0f7042a2
