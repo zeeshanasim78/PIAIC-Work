@@ -1,0 +1,3 @@
+An example for scraping simple stuff in Python using soup library.
+https://realpython.com/python-web-scraping-practical-introduction/
+
