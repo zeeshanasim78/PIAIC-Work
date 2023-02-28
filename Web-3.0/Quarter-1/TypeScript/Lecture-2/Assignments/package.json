@@ -1,0 +1,16 @@
+{
+  "name": "ts-assignments",
+  "version": "1.0.0",
+  "description": "To make 45 TS assignments given by Sir Zia",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zeeshan Asim",
+  "license": "ISC",
+  "keywords": [
+    "Type",
+    "Script",
+    "Assignments"
+  ]
+}
