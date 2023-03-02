@@ -3,9 +3,10 @@
  out a new set of invitations. You’ll have to think of someone else to invite.
  */
 
-let lstGuest2:Array<string> = ["Kamran Rasheed", "Naveed Haider", "Adnan Amin","Shahbaz Rasheed", "Muhammad Usman Khan" ];
+let lstGuest2:Array<string> = ["Kamran Rasheed", "Shahbaz Rasheed", "Muhammad Usman Khan" ];
 let counter:number;
 let lineString:string="";
+let indx:number;
 // Print the Guests Invitation List
 for (let gstName of lstGuest2) {
   console.log(`Dear ${gstName} ! I am hosting a dinner on comming Friday. You are invited with family for this event.. `); // prints chars: H e l l o  W o r l d
@@ -18,8 +19,9 @@ for(counter=0; counter < 100 ; counter++ ){
 //Print Line String
 console.log(lineString);
 
-  // Mr. Naveed Haider is not coming so I have to replace him with Mr. Ameer Hamza
-  lstGuest2[1]='Ameer Hamza';
+  //Shahbaz Rasheed is not coming so I have to replace him with Mr. Ameer Hamza
+indx=lstGuest2.indexOf("Shahbaz Rasheed");
+lstGuest2[indx]='Ameer Hamza';
 
   // Reprint the Guest Invitation List
   for (let gstName of lstGuest2) {
