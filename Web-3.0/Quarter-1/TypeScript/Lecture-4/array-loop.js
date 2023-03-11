@@ -11,7 +11,7 @@ var cleanCity = "Islamabad";
 var polutedCity = "Sailkot";
 var cleanCityFound = false;
 var pollutedCityFound = false;
-for (var i = 0; i < student.length; i++) {
+for (var i = 0; i < cities.length; i++) {
     if (cities[i] === cleanCity) {
         console.log("Found Cleanest city ".concat(cleanCity, " at index ").concat(i));
         cleanCityFound = true;

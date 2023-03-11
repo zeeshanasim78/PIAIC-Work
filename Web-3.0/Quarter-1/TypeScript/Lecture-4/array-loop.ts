@@ -14,7 +14,7 @@ let polutedCity:string="Sailkot";
 let cleanCityFound:boolean=false;
 let pollutedCityFound:boolean=false;
 
-for (let i = 0; i< student.length ; i++)
+for (let i = 0; i< cities.length ; i++)
 {
     if(cities[i]===cleanCity)
     {
