@@ -1,7 +1,13 @@
-"use strict";
+function printChar(chr, no) {
+    var str = "";
+    for (var i = 0; i < no; i++) {
+        str = str + chr;
+    }
+    console.log(str);
+}
+printChar("=", 80);
 function greet(name) {
-    console.log(`Hello ${name.toLocaleUpperCase()} in 
-                    Air University`);
+    console.log("Hello ".concat(name.toLocaleUpperCase(), " in \n                    Air University"));
 }
 //greet("Zeeshan Asim");
 /* function sum(){
@@ -11,21 +17,21 @@ console.log(sum()); // It will return undefined as function does not return any 
 function SumNos(no1, no2) {
     return no1 + no2;
 }
-console.log(`SumNos(130,343) : ${SumNos(130, 343)}`);
-console.log(`SumNos(145,343) : ${SumNos(145, 343)}`);
+console.log("SumNos(130,343) : ".concat(SumNos(130, 343)));
+console.log("SumNos(145,343) : ".concat(SumNos(145, 343)));
 // Arrow Function
-let arrowFunction1 = (n1, n2) => {
+var arrowFunction1 = function (n1, n2) {
     n1 + n2;
 };
 console.log("Value of the arrowFunction1(343,5677) : " + arrowFunction1(343, 5677));
 // The will return undefined
-let arrowFunction2 = (n1, n2) => {
+var arrowFunction2 = function (n1, n2) {
     return n1 + n2;
 };
 console.log("Value of the arrowFunction2(343,5677) : " + arrowFunction2(343, 5677));
 // The will return 6020
 // Lets more simply arrow function
-let arrowFunction3 = (n1, n2) => n1 + n2;
+var arrowFunction3 = function (n1, n2) { return n1 + n2; };
 console.log("Value of the arrowFunction3(343,5677) without return : " + arrowFunction3(343, 5677));
 // The will return 6020 . So for single line we do not need to return a value
 //Note

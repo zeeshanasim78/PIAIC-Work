@@ -1,3 +1,14 @@
+function printChar(chr:string,no:number){
+    let str:string="";
+    for(let i=0 ; i < no ; i++ )
+    {
+       str= str+chr;
+    }
+    console.log(str);
+}
+
+printChar("=",80);
+
 function greet(name:string){
     console.log(`Hello ${name.toLocaleUpperCase()} in 
                     Air University`);
