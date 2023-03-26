@@ -46,3 +46,92 @@ const n = obj;
 function greet(name) {
     console.log("Hello, " + name.toUpperCase() + "!!");
 }
+greet("Zeeshan");
+// Would be a runtime error if executed!
+// greet(42);  // Because Argument of type 'number' is not assignable to parameter of type 'string'.
+// Return Type
+function getFavoriteNumber() {
+    return 26;
+}
+// Annonumous Function
+// Anonymous functions are a little bit different from function declarations. When a function appears in a place where 
+// TypeScript can determine how it’s going to be called, the parameters of that function are automatically given types.
+const user_names = ["Alice", "Bob", "Eve"];
+// Contextual typing also applies to arrow functions
+user_names.forEach((s) => {
+    console.log(s.toUpperCase());
+});
+function printCoord(pt) {
+    console.log("The coordinate's x value is " + pt.x);
+    console.log("The coordinate's y value is " + pt.y);
+}
+// Note: Here, we annotated the parameter with a type with two properties - x and y - which are both of type number. 
+// You can use , or ; to separate the properties, and the last separator is optional either way.
+// We can pass values to Object as 
+printCoord({ x: 3, y: 7 });
+// Optional Property
+// Object types can also specify that some or all of their properties are optional. To do this, add a ? after the property name:
+function printName(obj2) {
+    // ...
+}
+// Both OK
+printName({ first: "Bob" });
+printName({ first: "Alice", last: "Alisson" });
+// Note : In JavaScript, if you access a property that doesn’t exist, you’ll get the value undefined rather than a runtime 
+// error. Because of this, when you read from an optional property, you’ll have to check for undefined before using it.
+function printName2(obj) {
+    // Error - might crash if 'obj.last' wasn't provided!
+    // Check if Object is possibly 'undefined'.
+    if (obj.last !== undefined) {
+        // OK
+        console.log(obj.first.toUpperCase(), ",", obj.last.toUpperCase());
+    }
+    else {
+        console.log(obj.first.toUpperCase());
+    }
+}
+printName2({ first: "Zeeshan" });
+printName2({ first: "Zeeshan", last: "Asim Khan" });
+//Union Types
+//TypeScript’s type system allows you to build new types out of existing ones using a large variety of operators. Now that
+// we know how to write a few types, it’s time to start combining them in interesting ways.
+function printId(id) {
+    if (typeof id === "string") {
+        // In this branch, id is of type 'string'
+        console.log(id.toUpperCase());
+    }
+    else {
+        // Here, id is of type 'number'
+        console.log(id);
+    }
+}
+printId(101); // OK
+printId("202"); // OK
+// Error
+//printId({ myID: 22342 });
+//Argument of type '{ myID: number; }' is not assignable to parameter of type 'string | number'.
+function welcomePeople(x) {
+    if (Array.isArray(x)) {
+        // Here: 'x' is 'string[]'
+        console.log("Hello, " + x.join(" and "));
+    }
+    else {
+        // Here: 'x' is 'string'
+        console.log("Welcome lone traveler " + x);
+    }
+}
+welcomePeople("Zeeshan");
+welcomePeople(user_names);
+// null and undefined
+// JavaScript has two primitive values used to signal absent or uninitialized value: null and undefined. TypeScript has 
+// two corresponding types by the same names. How these types behave depends on whether you have the strictNullChecks option on.
+// If strictNullChecks is on in tsconfig.json file then when a value is null or undefined, you will need to test for those
+// values before using methods or properties on that value.
+function doSomething(x) {
+    if (x === null) {
+        // do nothing
+    }
+    else {
+        console.log("Hello, " + x.toUpperCase());
+    }
+}
