@@ -19,13 +19,31 @@
 // Module Resolution: What is the relationship between module names (or paths) and files on disk?
 // Module Output Target: What should my emitted JavaScript module look like?
 
-//ES Module Syntax
-//A file can declare a main export via export default:
-// @filename: hello.ts
-export default function helloWorld() {
-    console.log("Hello, world!");
-  }
+
 
 // This is then imported via:
+// To import a method from a js file we use import statement as 
 import helloWorld from "./hello.js";
+
+// To import variables a module we canuse import statement as 
+import { phi, absolute } from "./maths.js";
+// An import can be renamed using a format like import {old as new}:
+import { pi as π } from "./maths.js";
+
+// or You can mix and match the above syntax into a single import:
+//import RandomNumberGenerator, { pi as π } from "./maths.js";
+
+//You can import a file and not include any variables into your current module
+// n this case, the import does nothing. However, all of the code in maths.ts 
+// was evaluated, which could trigger side-effects which affect other objects.
+import "./maths.js";
+
+console.log("π",π);
+ 
+console.log("phi=",phi);
+const absPhi = absolute(phi);
+
 helloWorld();
+
+import { Cat, Dog } from "./animal.js";
+type Animals = Cat | Dog;
