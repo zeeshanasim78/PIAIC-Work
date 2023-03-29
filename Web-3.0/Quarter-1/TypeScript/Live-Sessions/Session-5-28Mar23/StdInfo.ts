@@ -1,8 +1,5 @@
 import pendStds from "./Students"; /// To import default exported values
-let iObjects = require("./Students");
-
-let appStds = iObjects.approvedStudents;
-let stdObjs = iObjects.studentObj;
+import { approvedStudents,studentObj} from "./Students.js";
 
 for (let s = 0; s < stdObjs.length; s++)
     console.log(`ID = ${stdObjs[s].id}, Name = ${stdObjs[s].name}`);
