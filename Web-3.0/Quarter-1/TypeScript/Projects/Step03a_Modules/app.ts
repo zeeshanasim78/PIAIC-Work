@@ -25,7 +25,7 @@
 // To import a method from a js file we use import statement as 
 import helloWorld from "./hello.js";
 
-// To import variables a module we canuse import statement as 
+// To import variables a module we can use import statement as 
 import { phi, absolute } from "./maths.js";
 // An import can be renamed using a format like import {old as new}:
 import { pi as π } from "./maths.js";
