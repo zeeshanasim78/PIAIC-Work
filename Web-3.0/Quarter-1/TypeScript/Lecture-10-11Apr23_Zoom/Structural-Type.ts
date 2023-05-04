@@ -63,7 +63,7 @@ let myType = { name: "Zia", id: 1 };
 myType = { id: 2,  name: "Tom" };//Case 1: can only assign a type which has the the same properties Object literals can only have properties that exist in contextual type
 
 //Case 2a
-myType = { id: 2,  name_person: "Tom" };//Case 2a: Error, renamed or missing property
+//myType = { id: 2,  name_person: "Tom" };//Case 2a: Error, renamed or missing property
 
 //Case 2b 
 //A type can include an index signature to explicitly indicate that excess properties are permitted in with fresh objects:
@@ -89,8 +89,9 @@ let myType2 = { id: 2,  name: "Tom" };
 myType = myType2;//Case 1: can only assign a type which has the the same properties, rule same for fresh and stale object
 
 let myType3 = { id: 2,  name_person: "Tom" };
+
 //Case 2a
-myType = myType3;//Case 2: Error, renamed or missing property, rule same for stale and fresh object 
+//myType = myType3;//Case 2: Error, renamed or missing property, rule same for stale and fresh object 
 
 
 //Case 2b
