@@ -82,7 +82,6 @@ myType = { id: 2,  name: "Tom", age: 22 };//Case 3: Error, excess property
 
 
 //Case when STALE object literal are assigned to a variable 
-
 let myType2 = { id: 2,  name: "Tom" };
 
 //Case 1
@@ -107,6 +106,9 @@ var myType4 = { id: 2,  name: "Tom", age: 22 };
 //Case 3
 myType = myType4;//Case 3: Ok, excess property allowed in case of stale object which is different from fresh object
 
+
+// But if we assign it as
+myType = { id: 2,  name: "Tom", age: 22 };
 
 
 
