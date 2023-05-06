@@ -1,0 +1,69 @@
+Lecture # 1 : Online Session By Sir Zia  : 11-Apr-23
+Structural Typing : https://www.youtube.com/watch?v=ht8GZibRIA8
+
+Lecture # 2 : Online Session By Sir Zia  : 13-Apr-23
+Structural Typing Revision, Arrays, and Functions :
+https://www.youtube.com/watch?v=eelFcdUofcQ
+
+Lecture # 3 : Online Session By Sir Zia  : 15-Apr-23
+Asynchronous programming : https://www.youtube.com/watch?v=oUOnl3qTutM
+====================================================================================
+Today in the Quarter 1 class we built a university management system using OOP, here are the resources
+
+Diagram:
+https://drive.google.com/file/d/1xFUYd6GW5U0tSQSN8_xi5QvFKrlxYfF0/view?usp=sharing
+
+Video:
+https://www.youtube.com/watch?v=O3kxSB5GBWQ
+
+Code:
+https://github.com/Hamzah-syed/university-management-system
+====================================================================================
+
+Please prepare yourself for a TypeScript quiz based on Sir Zia's Git repository, covering topics 1 to 10. Additionally, please watch our video for further clarification on TypeScript concepts.
+
+Function
+https://youtu.be/bjhYkQ-gZ30
+
+Arrow Function
+https://youtu.be/in56MwidA98
+
+Nested Function
+https://youtu.be/efUMBjdRfeQ
+
+Parameter and Argument
+https://youtu.be/NzlrCa6Vpno
+
+Variable Scope
+https://youtu.be/VUJlloynILE
+
+if else statement 
+https://youtu.be/_dudMV6QL0M
+
+Union types
+https://youtu.be/WVU3vdI8rhI
+
+Objects
+https://youtu.be/WYBRwNVYBVM
+
+Interface
+https://youtu.be/JkS5oJqc6Oo
+
+Interface extends
+https://youtu.be/WDFOIPzUXxI
+
+
+Type
+https://youtu.be/7tnAFC3nHZw
+
+Type limitation
+https://youtu.be/tP80j2qoO9M
+
+Structural Type 
+https://youtu.be/a044gxUFZX4
+
+Enum
+https://youtu.be/xbpHZtuLyWs
+
+rest and spread operator
+https://youtu.be/y8CFY4yMOck
