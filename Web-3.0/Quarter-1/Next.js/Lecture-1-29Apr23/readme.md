@@ -19,6 +19,7 @@ You can delete all the code written in that function and write
 return <h1> <b> Hello World </b> ! From Pakistan</h1>  in that function
 
 To run the project use command : npm run dev
+You should be in your project folder to runt he project/app
 It will run the server on a port and will show that URL like http://localhost:3000
 Open that url in the browser and it will show the output
 
