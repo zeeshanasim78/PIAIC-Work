@@ -23,6 +23,11 @@ let myAdd3: (baseValue:number, increment:number)=>number = 	function(x: number, 
 																return x+y; 
 															};
 
+															//
+
+// Arrow Function
+const arrFunct = (a:number , b:number) : number => a+b
+
 //Lambda functions															
 let myAdd4 = (a : number, b : number) => a + b;
 // For single line Lamba function we did not require {}
