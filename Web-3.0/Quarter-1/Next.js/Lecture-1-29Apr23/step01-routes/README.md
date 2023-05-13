@@ -39,7 +39,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ===================================My Notes =====================================================
 Routes :
-In Next.js 13 folders are used to define routes. A route is a single path of nested folders, following the hierarchy from the root folder down to a final leaf folder. Files are used to create UI that is shown for the route segment.
+In Next.js ver 13 folders are used to define routes. A route is a single path of nested folders, following the hierarchy from the root folder down to a final leaf folder. Files are used to create UI that is shown for the route segment.
 
 To create a route you can create a folder in the app directory. For example, you can add app/name director with its page.tsx file.
 
