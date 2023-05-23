@@ -4,6 +4,8 @@ Steps to Create A Node.JS Project:
 If you are behind a proxy you can use command
 npm config set proxy http://132.147.147.111:3128
 
+You can also remove the proxy using command : npm config rm proxy
+
 2) You can create a next.js project with defualt settings as
 npx create-next-app@latest
 The above command will ask for following information
