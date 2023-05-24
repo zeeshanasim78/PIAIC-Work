@@ -64,16 +64,16 @@ export default function IndexPage() {
          WebDevSols :  Web Development Solutions using Next.JS 
         </h1>
         <div className="px-5px py-5px shadow-outer bg-gray-50">
-        <NavigationMenu>
+        <NavigationMenu className=" ">
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                <NavigationMenuContent >
+                  <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr] border-2">
                     <li className="row-span-3">
                       <NavigationMenuLink asChild>
                         <a
-                          className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                          className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md bg-black"
                           href="/"
                         >
                           <Icons.logo className="h-6 w-6" />
