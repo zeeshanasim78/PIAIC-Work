@@ -1,6 +1,7 @@
 "use client"
 import * as React from "react"
 import Link from "next/link"
+import image1 from "./images/WebDevelopment.png"
 
 import { cn } from "@/lib/utils"
 import {
@@ -59,7 +60,7 @@ import { buttonVariants } from "@/components/ui/button"
 
 export default function IndexPage() {
   return (
-      <div className="px-5px py-5px shadow-outer bg-blue-600 text-center">
+      <div className="px-5px py-5px shadow-outer bg-blue-500 text-center">
         <h1 className="text-2xl font-extrabold align-middle bg-blue-50 ">
          WebDevSols :  Web Development Solutions using Next.JS 
         </h1>
@@ -125,6 +126,7 @@ export default function IndexPage() {
             </NavigationMenuList>
           </NavigationMenu>
         </div>
+       
       </div>
   )
 }

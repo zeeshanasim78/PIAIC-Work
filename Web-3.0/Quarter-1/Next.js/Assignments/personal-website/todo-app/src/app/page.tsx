@@ -1,11 +1,12 @@
 import Image from 'next/image'
-import addPersonalInfoTodo from './add-Personal-Info-todo'
+import AddTodo1 from './todo-1'
+import AddTodoList from './todo-list'
 
 export default function Home() {
   return (
-   <div>
-      <b><u>Student Information </u></b>
-      <addPersonalInfoTodo></addPersonalInfoTodo>
-   </div>
+      <div> 
+          <AddTodo1></AddTodo1>
+          <AddTodoList></AddTodoList>
+      </div>
   )
 }
