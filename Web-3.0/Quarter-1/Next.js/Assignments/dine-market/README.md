@@ -47,8 +47,26 @@ If you want to view the complete path of this file you need to add  "baseUrl": "
     "paths": {
       "@/*": ["./src/*"]
 
-Step # 9:
-52
+Step # 9: Now we can import Header in the Layout.tsx. It is a wrapper for all pages. This layout is applied on all pages. {children} represents that page so we can add before or after the page. So if we add the Header Code before {children} in layout.tsx file then it will be added at start of each page. Now we can remove the Header coded added previouly . 
+
+Step # 10: Now lets design our Nav menu in the Header. The Navigation menu contains a logo , 4 links , 1 search bar and a cart icon. Now 1st of all we will download the site logo and place it inside the public folder of the project.
+Note: Any thing that is placed in the public is consider static and it can be accesed as '/public/filename'
+Now as it is present in the public folder and we have to use it in the Header so will 2st import it as :  import logo1 from '/public/logo.webp'
+Now we will use the next.js Image to display Image. we can import it as : import Image from "next/image"
+and use this code to show image as :  <Image src={logo1} height={150} width={150} alt="Logo Image"></Image>
+
+Step # 11 : Now We have to add the Navigation bar. Best practice is to add html first then style them. For the NAvigation bar use the following code inside the header.tsx file defualt function
+    <div className='flex bg-red-300 justify-between items-center py-6 p-x-8'>
+      <Image src={logo1} height={150} width={150} alt="Logo Image"></Image>
+      <ul className='flex gap-10'>
+        <li> Female </li>
+        <li> Male </li>
+        <li> Kids </li>
+        <li> All Products </li>
+      </ul>
+      <div className='h-10 w-10 rounded-full bg-gray-300'></div>
+    </div>
+
 
 
 

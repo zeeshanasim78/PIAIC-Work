@@ -1,8 +1,0 @@
-LEcture URL :
-https://www.youtube.com/watch?v=loG4NOwbeU0
-
-Sir Zia Repo Link for Builind Project using Shadcn
-https://github.com/panaverse/learn-nextjs/tree/main/step07_styling/tailwindCSS/step12_shadcn_ui/step00_helloworld
-
-
-Step # 1 : Create a Next.js project using command 
