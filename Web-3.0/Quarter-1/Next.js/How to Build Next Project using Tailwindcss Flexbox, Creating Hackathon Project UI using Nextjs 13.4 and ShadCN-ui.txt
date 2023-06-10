@@ -11,8 +11,9 @@ Horizentolly / Vertically. To use FlexBox we use Flex property of Tailwind Css.
 Lets discuss some of important properties of Flexa) :
 
 Justify-content : To align content horizentally. The available options are:
-justify-center , justify-start, justify-end , justiy-between (Equal Spacing) , 
+justify-center , justify-start, justify-end , justiy-between (Equal Spacing) ,
 justify-around (Same Space between items)
 , justify-evenly (Same Space between items and also before 1st item and after last item in the row)
 
-5:30
+Flex-Wrap
+The Flex-Wrap utility class makes the flex items wrap if you run out of the space
