@@ -67,7 +67,12 @@ Step # 11 : Now We have to add the Navigation bar. Best practice is to add html 
       <div className='h-10 w-10 rounded-full bg-gray-300'></div>
     </div>
 
+Step # 12 : Now we have to add the Link on our Navigation Bar Items . We will use the Next.js Link component for this purpose. For this we need to first import it as : import Link from 'next/link' . <Link> tag contains a href property which specifies the link where this link will go whenever it is clicked. So we will change the <li> items as :
+  <li className='text-lg'> 
+    <Link href="/"> Female  </Link>
+ </li>
 
+ Step # 13 : 
 
 
 
