@@ -1,6 +1,10 @@
 import logo1 from '/public/logo.webp'
 import Image from "next/image"
 import Link from 'next/link'
+import {ShoppingCart} from 'lucide-react'
+import { Input } from   '../../../components/ui/input' 
+
+
 
 const Header = () => {
   return (
@@ -20,7 +24,12 @@ const Header = () => {
             <Link href="/"> All Products  </Link>
         </li>
       </ul>
-      <div className='h-10 w-10 rounded-full bg-gray-300'></div>
+      <div>
+      <Input type="email" placeholder="Search" />
+      </div>
+      <div className='h-10 w-10 rounded-full bg-gray-300 flex justify-center items-center'>
+      <ShoppingCart className='w-6 h-t6 '></ShoppingCart>
+      </div>
     </div>
   )
 }

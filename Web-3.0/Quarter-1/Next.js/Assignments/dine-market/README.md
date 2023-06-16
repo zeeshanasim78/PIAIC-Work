@@ -72,7 +72,42 @@ Step # 12 : Now we have to add the Link on our Navigation Bar Items . We will us
     <Link href="/"> Female  </Link>
  </li>
 
- Step # 13 : 
+ Step # 13 : Add the Lucide-REact Icons library
+ You first need to install the Lucide-React Icons Library as. npm  install lucide-react
+ After that you can import it as import {ShoppingCart} from 'lucide-react'
+ To get information about available icons you can visit their website at https://lucide.dev/
+<div className='h-10 w-10 rounded-full bg-gray-300 flex justify-center items-center'>
+  <ShoppingCart className='w-6 h-t6 '></ShoppingCart>
+ </div>
+
+ Step # 14 : Add Search Bar
+ We can use default input type or we can go for Shadcn Input. But for that you need to install the shadcn input as : npx shadcn-ui add input. Now next step is to import it from the location where this component is isntalled.
+ For this project we will import as import { Input } from   '../../../components/ui/input' . Now we can add code as to use the Shadcn UI as :
+       <div>
+      <Input type="email" placeholder="Search" />
+      </div>
+
+
+Step # 15: Now we will create different sections of our page for this we will create a section folder in the src. This is not a Hard and Fast Rule but a industry best practice that we should also follow. All the components will be in components folder created inside app and all the sections will be in views folder.
+Now our first section is Hero Section. So create a Hero.tsx file in the view folder and write the following code:
+import React from "react";
+
+ const Hero=() => {
+    return (
+        <div>Hero</div>
+    )
+ }
+
+ export default Hero
+
+Note: We will use <section> tag instead of the first <div> tag. As we will use semantic web and google will understand that a section starts from here.
+
+
+
+
+
+
+
 
 
 
