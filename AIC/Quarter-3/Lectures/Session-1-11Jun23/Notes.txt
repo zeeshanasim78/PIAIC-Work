@@ -1,0 +1,59 @@
+Session # 1 : 11Jun23
+Book : Deep Learning with Python
+Part II : Deep Learning in Practice
+
+Google Drive Link :  https://drive.google.com/drive/folders/1ZZjddzcjnJFq3Z4hdPXIY_4B5_-C4vNw?usp=drive_link
+
+Informative Material for Further Study
+Andrew Nig Lecture What is Neural Network 
+https://www.youtube.com/playlist?list=PLpFsSf5Dm-pd5d3rjNtIXUHT-v7bdaEIe
+
+Convolutional Neural Networks 
+https://www.youtube.com/watch?v=ArPaAX_PhIs&list=PLkDaE6sCZn6Gl29AoE31iwdVwSG-KnDzF
+
+Giant Companies have captured the field of AI. So it would be a good idea that we
+should use the already developed API and focus on our logic part and product
+development. 
+
+Book Name : Deep Learning with Python
+Chapter # 5: Deep Learning for Computer Vision
+
+Convolutional Neural Network is specialized for Computer Vision and modified version of Artificial Neural Network.
+
+Let us discuss # Listing 5.1 : Instiating a small content of Vook
+The following lines of code show you what a basic convnet looks like. It’s a stack of
+Conv2D and MaxPooling2D layers.
+
+from keras import layers
+from keras import models
+
+model = models.Sequential()
+# The model we are using is sequential
+
+model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)))
+# Here Activation function is relu, input shape is 28 x 28 and single color
+# A convnet takes as input tensors of shape (image_height, image_width,image_channels)
+# Here we are using a 32 Kernal and its size is 3x3, which works on all image, and will generate a output, So 32 outputs will be generated 
+# This 3x3 can be changed to 5x5 or 7x7 in case image is large but it should be odd
+# In this layer weights are being generated
+
+model.add(layers.MaxPooling2D((2, 2)))
+# MaxPooling2D size we have used is 2,2 . So it will select the highest value feature from 2x2 matrix
+# So we are retaining the heavy weight feature and discard the remainging in 2x2
+# This will help us to reduce the image size . So 4x4 is reduced to 2x2
+
+model.add(layers.Conv2D(64, (3, 3), activation='relu'))
+# In this step we are asking to generate 64 output images for each of 13x13,1
+# You can see that the output of every Conv2D and MaxPooling2D layer is a 3D tensor of shape (height, width, channels). The width and height 
+# dimensions tend to shrink. as you go deeper in the network. The number of channels is controlled by the first argument passed to the Conv2D layers (32 or 64)
+
+model.add(layers.MaxPooling2D((2, 2)))
+
+# The next step is to feed the last output tensor (of shape (3, 3, 64)) into a densely
+# connected classifier network like those you’re already familiar with: a stack of Dense
+# layers. These classifiers process vectors, which are 1D, whereas the current output is a
+# 3D tensor. First we have to flatten the 3D outputs to 1D, and then add a few Dense layers on top.
+
+model.add(layers.Conv2D(64, (3, 3), activation='relu')
+
+

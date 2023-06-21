@@ -1,0 +1,30 @@
+Using Inquirer Package for Input
+The latest version (9+) of Inquirer has start using Native ECMA Script Packages. In most of our projects and assignment we will use this package.
+
+Step # 1 : Start a new project in a new folder
+Step # 2 :  tsc --init  to create tsconfig.json file for the project
+Step # 3 : TO use inquirer you need to set following parameters in the tsconfig.json file
+  target: es2022
+  module: NodeNext
+  
+Step # 4 : Add the inquirer support. Run following commands:
+	a)     npm i inquirer
+	b) 	   npm i --save-dev @types/inquirer
+
+
+
+ a ts file in the project and write following code
+
+
+Give the following command:
+
+    npm i inquirer
+
+    npm i --save-dev @types/inquirer
+Add .gitignore file and Write your code in app.ts file.
+
+Give the following commands:
+
+    tsc
+
+    node app.js
