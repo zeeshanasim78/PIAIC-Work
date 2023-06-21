@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { ShoppingCart } from "lucide-react";
+import sign_up_img from "../../images/sign_up.jpg";
+import sign_up_img2 from "../../images/sign_up_img2.png";
 
 import { Button } from "../../components/ui/button" ;
 import { Input } from "../../components/ui/input";
@@ -26,73 +28,98 @@ export function CalendarDemo() {
       mode="single"
       selected={date}
       onSelect={setDate}
-      className="rounded-md border"
+      className="rounded-md border bg-gray-850"
     />
   )
 }
 
 export default function Home() {
   return (
-    <>      
-                <div>
-                    <h1 className="flex scroll-m-20 text-blue-900 text-6xl font-extrabold tracking-tight lg:text-5xl">
-                    Welcome to Developers Club                     </h1>
+    <>     <div className="bg-gray-200 m-2 p-2">
 
-                    <h3 className="text-2xl font-bold"> Signup by Providing for following information : </h3>
-                    <br></br>
+                <div className="flex flex-row justify-center">
+                        <h1 className="flex scroll-m-20 text-blue-900 text-6xl underline font-extrabold tracking-tight lg:text-5xl">
+                         Welcome to Developers Club 
+                        </h1>
                 </div>
-                <div>
-                  <br></br>
-                    <ul className="max-w-md space-y-1 ml-5 font-bold text-gray-500 list-disc list-inside dark:text-gray-400">
-                        <li> Enter Your Userame  </li>
-                        <li> Enter Your Email   </li>
-                        <li> Create Your Password  </li>
-                        <li> Enter You Date of Birth </li>
-                        <li> Select the Programming Language  </li>
-                        <li>  Accept the Terms and Conditions.. </li>
-                    </ul>
+
+                <div className="flex flex-row justify-center  bg-gray-300 m-3 ">
+                        <div className="flex flex-col text-center ">
+                               <div className="flex text-center m-2">
+                                  <h4 className="text-xl font-bold"> Signup by providing for following information : </h4>
+                              </div>
+                              <div className="flex flex-row text-left  m-4">
+                                <ul className="max-w-md space-y-1 ml-5  font-bold text-gray-500 list-disc list-inside dark:text-gray-400">
+                                    <li> Enter Your Userame  </li>
+                                    <li> Enter Your Email   </li>
+                                    <li> Create Your Password  </li>
+                                    <li> Enter You Date of Birth </li>
+                                    <li> Select the Programming Language  </li>
+                                </ul> 
+                              </div>
+                           
+                              <div className="flex flex-row text-center text-gray-800 text-base p-2" >
+                                  <label> Enter User Name : </label>
+                                  <Input type="text" placeholder="Enter Your Name" className=" w-150"/>
+                              </div>
+                              <div className="flex flex-row text-center text-gray-800 text-base p-2">
+                                  <label> Enter User Email : </label>
+                                  <Input type="email" placeholder="Enter Your Email" className=" w-150"/>
+                              </div>
+                              <div className="flex flex-row text-center text-gray-800 text-base p-2">
+                                   <label> Enter Password  : </label>
+                                   <Input type="password" placeholder=" Create Your Password" className=" w-150" />
+                              </div>    
+
+                              <div className="flex flex-row text-center text-gray-900  text-base p-2">
+                                  <label> Select Your DOB   : </label>
+                                  <CalendarDemo></CalendarDemo>
+                              </div> 
+
+                              <div className="flex flex-row text-center text-gray-900  text-base p-1">
+                              <label> Select thr Programming Language  : </label> 
+                                  <Select>
+                                    <SelectTrigger className="w-[180px]">
+                                      <SelectValue placeholder="Python" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                      <SelectItem value="python">Python</SelectItem>
+                                      <SelectItem value="ts">TypeScript</SelectItem>
+                                      <SelectItem value="csharp">C#</SelectItem>
+                                    </SelectContent>
+                                  </Select>
+                            </div>
+
+                       </div>
+                    
+                        <div className="flex flex-col ">
+                          <Image src={sign_up_img2} height={800} width={800} alt="Sign Up Image"></Image>
+                        </div>
+
                 </div>
-                <div>
-                     <Input type="text" placeholder="Enter Your Name"/>
-                     <Input type="email" placeholder="Enter Your Email" />
-                     <Input type="password" placeholder=" Create Your Password" />
+
+                <div className="flex flex-col text-center ">
+                    <div className="flex flex-row justify-center">
+                            <Checkbox id="terms1" />
+                            <label
+                                  htmlFor="terms1"
+                                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 mx-3">
+                                  I Accept the Website Terms and Conditions
+                            </label>
+                    </div>
+                    <div className="flex flex-row justify-center py-1">
+                            <p className="text-sm text-muted-foreground">
+                                Please tick checkbox if you agree with our Terms of Service and Privacy Policy.
+                            </p>
+                    </div>
                 </div>
-                <div>
-                    <h2 className="text-2xl font-extrabold"> Select Your DOB </h2>
-                    <CalendarDemo></CalendarDemo>
+                <div className="flex flex-col text-center ">
+                    <Button className="justify-center items-center mx-4">
+                            Submit Your Information..
+                            <ShoppingCart className="h-4 w-4 mx-2"></ShoppingCart>
+                     </Button>
                 </div>
-                <div>
-                    <h2 className="text-2xl font-extrabold"> Select thr Programming Language</h2>
-                    <Select>
-                      <SelectTrigger className="w-[180px]">
-                        <SelectValue placeholder="Python" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="python">Python</SelectItem>
-                        <SelectItem value="ts">TypeScript</SelectItem>
-                        <SelectItem value="csharp">C#</SelectItem>
-                      </SelectContent>
-                    </Select>
-                </div>
-                
-                <div className="items-top flex space-x-2">
-                  <Checkbox id="terms1" />
-                  <div className="grid gap-1.5 leading-none">
-                    <label
-                      htmlFor="terms1"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      Accept terms and conditions
-                    </label>
-                    <p className="text-sm text-muted-foreground">
-                      You agree to our Terms of Service and Privacy Policy.
-                    </p>
-                  </div>
-                </div>
-                <Button>
-                  Submit Your Information..
-                  <ShoppingCart className="mr-2 h-4 w-4"></ShoppingCart>
-                  </Button>
+          </div>
     </>
 
      )

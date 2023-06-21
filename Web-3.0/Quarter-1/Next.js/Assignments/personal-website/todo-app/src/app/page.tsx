@@ -5,7 +5,8 @@ import AddTodoList from './todo-list'
 export default function Home() {
   return (
       <div> 
-         Test <Page></Page>
+         <AddTodo1></AddTodo1>
+         <AddTodoList></AddTodoList>
       </div>
   )
 }
