@@ -1,15 +1,13 @@
 import React from "react";
-import Image from "next/image"
-import P1 from "/public/p1.png"
-import P2 from "/public/p2.png"
-import P3 from "/public/p3.png"
+import Image, { StaticImageData } from "next/image"
 
- const ProductCard=() => {
+
+function ProductCard(props:{title:string,price:number,img:StaticImageData}) {
     return (
-        <div className="m-5">
-            <Image src={P1} alt="Brushed Raglan Sweatshirt"></Image>
-            <h3 className="font-bold text-lg mt-3"> Brushed Raglan Sweatshirt</h3>
-            <p className="font-bold text-lg "> $ 195.0</p>
+        <div className="m-10">
+            <Image src={props.img} alt="Brushed Raglan Sweatshirt"></Image>
+            <h3 className="font-bold text-lg mt-3"> {props.title}</h3>
+            <p className="font-bold text-lg "> $ {props.price}</p>
           
         </div>
     )

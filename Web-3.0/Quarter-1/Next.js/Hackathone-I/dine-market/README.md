@@ -2,7 +2,10 @@ Lecture URL :
 https://www.youtube.com/watch?v=loG4NOwbeU0
 
 Sir Zia Repo Link for Builind Project using Shadcn
-https://github.com/panaverse/learn-nextjs/tree/main/step07_styling/tailwindCSS/step12_shadcn_ui/step00_helloworld
+https://github.com/panaverse/learn-nextjs/tree/main/step07_styling/shadcnUI/step00_shadcn_ui/step00_helloworld
+
+Task : Our task is to make a UI replica of this site https://full-stack-ecommerce-clothing-web.vercel.app/
+
 
 Steps
 ================================================================================================================
