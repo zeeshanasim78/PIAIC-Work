@@ -11,17 +11,20 @@ const Header = () => {
     <div className='flex flex-col lg:flex-row bg-slate-100  justify-around items-center py-6 p-x-8'>
       <Image src={logo1} height={150} width={150} alt="Logo Image"></Image>
       <ul className='flex flex-col lg:flex-row gap-x-5'>
-        <li className='text-lg'> 
-            <Link href="/"> Female  </Link>
+      <li className='text-lg'> 
+            <Link href="/"> Home  </Link>
         </li>
         <li className='text-lg'> 
-            <Link href="/"> Male  </Link>
+            <Link href="femaleproducts"> Female  </Link>
         </li>
         <li className='text-lg'> 
-            <Link href="/"> Kids </Link>
+            <Link href="maleproducts"> Male  </Link>
         </li>
         <li className='text-lg'> 
-            <Link href="/"> All Products  </Link>
+            <Link href="kidsproducts"> Kids </Link>
+        </li>
+        <li className='text-lg'> 
+            <Link href="allproducts"> All Products  </Link>
         </li>
       </ul>
       <div>

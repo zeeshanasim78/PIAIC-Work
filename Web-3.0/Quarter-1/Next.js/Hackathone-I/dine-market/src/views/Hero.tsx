@@ -7,10 +7,12 @@ import Featured2 from "/public/Featured2.webp"
 import Featured3 from "/public/Featured3.webp"
 import Featured4 from "/public/Featured4.webp"
 import Image from "next/image"
+import { ShoppingCart} from "lucide-react"
+
 
  const Hero=() => {
     return (
-        <div  className="flex flex-col lg:flex-row gap-y-10 py-6 border-0">
+        <div  className="flex justify-around">  {/* flex flex-col lg:flex-row gap-y-10 py-6 border-0  */}
             {/* For LHS Part of Section */}
             <div className="flex-1  border-0">
                  <Badge className="mx-8 my-5 py-2 px-5 rounded-lg bg-blue-200 text-blue-700 hover:bg-blue-300">Sale 70%</Badge>
@@ -22,8 +24,8 @@ import Image from "next/image"
                     <p className="gap-8 px-4 py-4 ">
                         Anyone can beat you but no one can beat your outfit as long as you wear Dine outfits..
                     </p>
-                    <Button className="mt-3 mx-10 bg-black py-3">
-                       Start Shopping
+                    <Button className="mt-3 mx-10 bg-black py-3 ">
+                      <ShoppingCart className=" p-1"></ShoppingCart> Start Shopping
                     </Button>
 
                  </div>
