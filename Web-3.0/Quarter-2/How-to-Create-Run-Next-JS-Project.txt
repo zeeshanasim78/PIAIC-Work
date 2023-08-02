@@ -1,0 +1,43 @@
+Steps to Create A Node.JS Project:
+==================================
+1) Please check Internet is available
+If you are behind a proxy you can use command
+npm config set proxy http://132.147.147.111:3128
+
+You can also remove the proxy using command : npm config rm proxy
+
+2) You can create a next.js project with defualt settings as
+npx create-next-app@latest
+The above command will ask for following information
+ What is your project named? ... step-00
+√ Would you like to use TypeScript with this project? ...  Yes
+√ Would you like to use ESLint with this project? ...  Yes
+√ Would you like to use Tailwind CSS with this project? ...  Yes
+√ Would you like to use `src/` directory with this project? ...  Yes
+√ Use App Router (recommended)? ...  Yes
+√ Would you like to customize the default import alias? ... No 
+
+The command will get latest libraries from Internet for selected options
+after some time it will create the project
+
+3) To run a next.js project we can use following commands:
+npm run dev    or    yarn dev    or    pnpm dev
+Note : YOu have to be in th project folder to run the project
+Open http://localhost:3000 with your browser to see the result.
+
+4)You can start editing the page by modifying src/app/page.tsx. 
+The page auto-updates as you edit the file. 
+Note : In any folder normaly page.tsx file is the start point
+Anything that is written in the function between return () will be shown
+export default function Home() {
+  return (
+  )  }
+  
+Deployment on Vercel
+=======================
+Vercel is the fastest way to deploy your Next.js application with zero configuration.
+In order to deploy on vercel you need a vercel account
+We can deploy a vercel using command : npm i -g vercel
+Now go to the Next.js project directory and give command to deploy to cloud: vercel 
+
+
