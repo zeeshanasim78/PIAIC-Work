@@ -11,11 +11,19 @@ Now write following TypeScript code in the app/page.tsx file
 
 import Link from 'next/link'
 export default function Page() {
-return <Link href="/dashboard">Dashboard</Link>
+return <Link href="/names">Names Page</Link>
 }
 
 We will use useRouter() Hook to programmatically change routes inside Name Client Component.
 https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#userouter-hook
+For Example:
+return (
+<div>
+<button type="button" onClick={() => router.push('/')}>
+Lets Move to Home Page using Programatically useRouter
+</button>
+</div>
+)
 
 We should use the component for navigation unless you have a specific requirement for using useRouter.
 
