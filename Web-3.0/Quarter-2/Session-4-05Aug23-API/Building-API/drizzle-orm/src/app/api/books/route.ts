@@ -16,14 +16,6 @@ async function getBooks() {
   return result;
 }
 
-async function getBookInfo(bid:number) {
-    const result = await db.select().from(book).where(eq(book.book_id, bid));
-    if (result.length > 0)
-        return result;
-    else
-        return "Please provide valid Book Id"
-}
-
 async function getPublishers() {
   const result = await db.select().from(publisher);
   return result;
@@ -56,12 +48,6 @@ export async function GET(request: NextRequest) {
         //const name = url.searchParams.get("name");
           return NextResponse.json(dbResponse, { status: 201 });
     }
-    else  if (url.searchParams.has("bookid")) {
-        const bid  = url.searchParams.get("bookid") as string;
-        const dbResponse = await getBookInfo(parseInt(bid));
-
-         return NextResponse.json(dbResponse, { status: 201 });
-    }
     else if (url.searchParams.has("authors")) {
         const dbResponse = await getAuthors();
         return NextResponse.json(dbResponse, { status: 201 });
@@ -79,3 +65,5 @@ export async function GET(request: NextRequest) {
   //return NextResponse.json(dbResponse, { status: 201 });
 }
 
+export async function POST(request: NextRequest) {
+}
