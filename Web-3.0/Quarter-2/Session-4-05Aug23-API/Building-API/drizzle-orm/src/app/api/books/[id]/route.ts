@@ -10,7 +10,7 @@ export async function GET(req:NextRequest , {params} : {params : {id : number}})
         return NextResponse.json(data)
     } catch (error) {
         return NextResponse.json({
-            message : (error as {message : string}).message
+            mesasage : (error as {message : string}).message
         })
     }
 }
