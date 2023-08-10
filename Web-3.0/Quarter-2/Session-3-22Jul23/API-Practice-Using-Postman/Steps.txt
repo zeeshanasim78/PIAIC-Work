@@ -1,0 +1,127 @@
+Simple Books API using Next.js 13 and Neon
+
+GitHub URL of the Task
+https://github.com/panaverse/learn-nextjs/tree/main/assignment04_simple_book_api
+
+The API should mirror the funtionality available at:
+https://simple-books-api.glitch.me
+
+To test the working of this API Open the Postman Program
+Set the type of API Get and paste the following url and press send  button
+
+It should return Response Code 200 which means successful/ ok. The body will return {"message":"Welcome to the Simple Books API."}
+
+If we send url https://simple-books-api.glitch.me/status it will return {"status":"OK"}
+
+Step ~ 1 : API Authentication: First step is to authenticate so that books can be reserved
+URL Address : https://simple-books-api.glitch.me/api-clients
+In the Body select raw and and data type JSON and pass following parameters :
+{
+   "clientName": "ZeeshanAsim",
+   "clientEmail": "zeeshanaism@com"
+}
+It will return authentication token
+{
+    "accessToken": "7c5b16e6d76c02947b852d91bbc1971b848e973edb2080c533bc9b01f8ea9656"
+}
+
+Step ~ 2 : To check the list of books (Dont need auth for this url)
+URL Address : https://simple-books-api.glitch.me/books
+Use API Type Get , Type above URL and select none for the body. Now press the send button
+It will return the books data in the JSON Array format
+[
+    {
+        "id": 1,
+        "name": "The Russian",
+        "type": "fiction",
+        "available": true
+    },
+    {
+        "id": 2,
+        "name": "Just as I Am",
+        "type": "non-fiction",
+        "available": false
+    },
+	{
+    "id": 3,
+    "name": "The Vanishing Half",
+    "author": "Brit Bennett",
+    "type": "fiction",
+    "price": 16.2,
+    "current-stock": 987,
+    "available": true
+	}
+]
+
+Note :  When calling the API we can set that the API should work for any value given. for that in the coding we have to define : 
+
+
+Step # 3 : TO get the details of a specific book we can use URL
+URL Address : https://simple-books-api.glitch.me/books/3
+Set Get API type, use above url and body set none . It will returnt he 3rd book deatils
+{
+    "id": 3,
+    "name": "The Vanishing Half",
+    "author": "Brit Bennett",
+    "type": "fiction",
+    "price": 16.2,
+    "current-stock": 987,
+    "available": true
+}
+
+Step # 4 : Lets reserve/order a book. But we need authentication token for this api call
+API Call : Post    , URL Address : https://simple-books-api.glitch.me/orders
+In the body section select raw and data Type as JSON . In the Body pass following information 
+{
+  "bookId": 1,
+  "customerName": "Zeeshan"
+}
+Now from the Authorization  tab pass the authentication token which you get at start "7c5b16e6d76c02947b852d91bbc1971b848e973edb2080c533bc9b01f8ea9656"
+and now select the authorizationtype as Barear Token
+
+Now when we press Send it will return Response Code 201 , Created :
+{
+    "created": true,
+    "orderId": "GR_BmGnt_NODy393leTPS"
+}
+
+Step # 5 : To Get all orders . But we need authentication token for this api call
+API Call : Get    , URL Address : https://simple-books-api.glitch.me/orders
+Now from the Authorization  tab pass the authentication token which you get at start "7c5b16e6d76c02947b852d91bbc1971b848e973edb2080c533bc9b01f8ea9656"
+and now select the authorizationtype as Barear Token
+This will allows you to view all orders a user has done
+
+
+Step # 6 : To Get specific order details . But we need authentication token for this api call
+API Call : Get    , URL Address : https://simple-books-api.glitch.me/orders/:orderId
+We will pass the orderId which was returned when we ordered the book :
+https://simple-books-api.glitch.me/orders/GR_BmGnt_NODy393leTPS
+Now from the Authorization  tab pass the authentication token which you get at start "7c5b16e6d76c02947b852d91bbc1971b848e973edb2080c533bc9b01f8ea9656"
+and now select the authorizationtype as Barear Token
+This will allows you to view details of the specific order of that user
+
+
+Step # 7 : To update some information. In this case we will update Customer Name : Authentication Token Required
+API Call : PATCH    , URL Address : https://simple-books-api.glitch.me/orders/:orderId
+We will pass the orderId which was returned when we ordered the book :
+https://simple-books-api.glitch.me/orders/GR_BmGnt_NODy393leTPS
+In the body section select raw and data Type as JSON . In the Body pass following information :
+{
+  "customerName": "John"
+}
+It will return Response code 204 but no content. As we know the code between 200 and 300 and Successful Response Code
+
+
+Step # 8 : To delete specific order. But we need authentication token for this api call
+The request body needs to be empty.
+API Call : DELETE    , URL Address : https://simple-books-api.glitch.me/orders/:orderId
+We will pass the orderId which was returned when we ordered the book :
+https://simple-books-api.glitch.me/orders/GR_BmGnt_NODy393leTPS
+
+It will return the response code 204 and No Content is returned. Means the Order ID is deleted
+
+
+
+
+
+
