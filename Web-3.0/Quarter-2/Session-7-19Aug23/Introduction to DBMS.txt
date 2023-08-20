@@ -1,0 +1,103 @@
+Book : Introduction to DBMS by Dr. Hariram Chavan and Prof. Sana Shaikh
+
+CHAPTER 1 : Database System Concepts and Architecture
+====================================================================================================================================
+The database management system is a collection of control routines (software package) that manages the data functionality, mainly for 
+easy storage and easy retrieval. In reality, it does many other important tasks from the creation of a database to the maintenance of
+a database which in turn includes the following:
+
+Data definition: It involves specifying the data types, data structures, and constraints of the data to be stored.
+
+Data storage: Storing data mostly on secondary storage (or server) which is controlled by DBMS.
+
+Data manipulation: The three main informal operations are add, modify, and delete; technically inserting, querying, updating and
+generating reports.
+
+Concurrent access: The main advantage of the database management systems is concurrent access or data sharing which allows multiple
+users and programs to access the data concurrently.
+
+Data protection: The DBMS provides protection against the unauthorized access, system failure, and other catastrophic failures.
+
+File System vs Database System
+Earlier, the file system was the most popular way to store and organize the data on drives. However, nowadays, when it comes to security and
+organizing of the data including constraints, many experts choose Database Management System (DBMS).
+
+CHAPTER 2 : The Entity-Relationship Model
+====================================================================================================================================
+Model : A model is a template/prototype used as a sample to simulate the real-world systems. Generally, it is constructed for a better 
+understanding of future solutions.
+
+Why to make a “Model”?
+A model allows you to test your solution quickly and cost-effectively. You could use the model for demonstrating to the clients and ask
+for design approval if design is what they are looking for?
+
+What do you mean by “Data Model” and why do we need to create it?
+A data model is a collection of concepts that can be used to describe the schema of a database. The schema of a database defines what the 
+entities are along with their data types, relationships, and constraints that needs to be applied to the data.
+
+Database Model
+A database model defines the logical schema of the data. The model describes the relationships between different parts of the data.
+For a database design, many models have been in use. They are listed as follows:
+	Hierarchical model
+	Network model
+	ER model
+	Relational model
+	
+A hierarchical database model is the oldest data model and uses a tree-like data structure to organize the data. The hierarchical model 
+is useful to the data which has inherent hierarchies such as an organizational chart. It has a single parent and can have one or more children,
+that is, the parent:child has 1:N relationship. 
+
+A network database model was formalized by the Database Task Group for flexible representation of objects and their relationships. 
+It uses the graph data structure and can be visualized as a superset of the hierarchical model. 
+
+The Entity-Relationship (ER) model was introduced by Chen in 1976. It is a popular high-level conceptual data model. An ER model is a 
+conceptual design of the database. In the ER model, the main components are entity, attribute, and relrelationship. For designing an 
+ER Model, we will follow relationship. For designing an ER Model, we will follow Chen’s notations. 
+
+Entity : The following are the features of an entity:
+	* An entity is a “thing” that can be distinctly identified.
+	* An entity represents something that exists in the real world and we want to maintain some data about them.
+	* A specific person, company, or event is an example of an entity.
+	* An entity can be the following:
+		A physical object - for example, House, Car, Player, etc.
+		A logical concept - for example, Job, Course, Server, etc.
+	* Entities are represented by labeled rectangles. The label is the name of the entity.
+	* Entity names should be singular nouns. And preferably represented by 	all characters in capital.
+
+The following are the features of an entity set:
+	A database is modeled as a collection of entities and relationships among the entities.
+	An entity is a physical object, or a logical thing described by attributes.
+	In the ER model, every entity is represented with the name of the entity and set of attributes.
+	
+Normalization
+
+
+CHAPTER 4 : Structured Query Language and Indexing
+====================================================================================================================================
+The features of SQL, as illustrated in Figure 4.1, are defined as follows:
+
+1. Data Definition Language (DDL)  :  Basically, the DDL commands are used to create and modify the database  
+objects. SQL DDL provides the various commands for defining, modifying, and deleting the existing relation schemas.
+
+2. Data Manipulation Language (DML)
+The DML commands are used to manage the data. Data manipulations can be achieved by inserting, deleting, or modifying the tuples.
+
+3. Data Control Language (DCL)
+DCL controls the access rights and permissions of the users. The access rights and permissions can be assigned or withdrawn by using the GRANT
+and REVOKE commands.
+
+4. Transaction Control Language (TCL)
+TCL is used to manage the transactions in the database. The SQL TCL commands are used for specifying the explicit beginning and end of the
+transactions as well as for providing the commands for Rollback, Savepoint, and Commit.
+
+5. View definition
+Views can be considered a virtual table which helps restrict the data access. The SQL DDL includes the commands for defining the views.
+
+6. Embedded data manipulation language
+The embedded form of SQL is designed for use within the generalpurpose programming languages such as C++, Java, Python, .NET etc.,
+for combining the computing power of a programming language and the database manipulation capabilities of SQL. It helps to relate and integrate
+the other systems and programs of the real world, such as the Web-based applications.
+
+7. Data Integrity
+Data integrity is the assurance of the accuracy and consistency of data in the database. It will protect the data from any unwanted or unintended
+changes while managing

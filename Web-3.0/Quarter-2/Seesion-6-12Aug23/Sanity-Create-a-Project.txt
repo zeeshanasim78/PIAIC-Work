@@ -1,0 +1,36 @@
+What is Sanity
+Sanity delivers content anywhere (just like a headless CMS).
+
+Beyond that, Sanity gives you total composability. A fully decoupled, real-time content back-end. Entirely customizable content workspaces.
+ Be ready for what's next.
+ 
+ Create a Sanity Project
+ ====================================================================================================
+ https://www.sanity.io/docs/create-a-sanity-project
+ 
+ Sanity is a platform for creating and working with structured content. Your content is stored in the cloud and can be distributed anywhere,
+ for example on a website or in an app.
+ 
+ Step 1: Install Sanity Studio
+You start by setting up your content editing environment. It’s called Sanity Studio, and you can configure and customize it with 
+JavaScript. It runs in the browser. To develop locally, we need to run a development server so you can see your changes instantly.
+
+To install Sanity Studio you'll first need to have node and npm installed. To get started, run this in your command line:
+npm create sanity@latest -- --template clean --create-project "Sanity Project" --dataset production
+
+This will take you through a setup process by guiding you through the following steps:
+
+👉  Create an account. Select a login provider from the list of options, and confirm with Enter. After creating an account in the browser, come back to the command line window.
+👉  Choose an output path. Press Enter to accept the default path, or change it to fit your needs first.
+👉  Wait a bit for the installation process to complete. When you get a Success! message, you're good to move on to the next step!! 🎉
+
+Step 2: Run the Studio locally
+Having installed the studio in the previous step, it’s time to start it up and run it in your browser!
+
+👉 Enter the Studio's directory:
+
+If you chose a custom output path, remember to change it respectively.
+
+cd sanity-project
+
+👉 Run this command within the Studio's folder:

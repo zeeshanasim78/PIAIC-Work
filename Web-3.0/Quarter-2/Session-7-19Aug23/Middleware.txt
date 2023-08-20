@@ -1,0 +1,26 @@
+Middleware
+
+https://nextjs.org/docs/app/building-your-application/routing/middleware
+
+Middleware allows you to run code before a request is completed. Then, based on the incoming request, you can modify the response by 
+rewriting, redirecting, modifying the request or response headers, or responding directly. Middleware runs before cached content and 
+routes are matched. 
+
+Matching Paths : Middleware will be invoked for every route in your project. The following is the execution order:
+
+headers from next.config.js
+redirects from next.config.js
+Middleware (rewrites, redirects, etc.)
+beforeFiles (rewrites) from next.config.js
+Filesystem routes (public/, _next/static/, pages/, app/, etc.)
+afterFiles (rewrites) from next.config.js
+Dynamic Routes (/blog/[slug])
+fallback (rewrites) from next.config.js
+There are two ways to define which paths Middleware will run on:
+
+Convention
+Use the file middleware.ts (or .js) in the root of your project to define Middleware. For example, at the same level as pages or app,
+ or inside src if applicable. So we will create the middleware.ts file in the src directory(Not in the app directory)
+ 
+ 
+ 
