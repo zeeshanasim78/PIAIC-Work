@@ -1,7 +1,0 @@
-{
-    "students":[
-      {"firstName":"John", "lastName":"Doe","subject":"Computer Science"},
-      {"firstName":"Anna", "lastName":"Smith","subject":"Sales"},
-      {"firstName":"Peter", "lastName":"Jones","subject":"Marketing"}
-    ]
-}
