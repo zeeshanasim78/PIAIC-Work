@@ -1,4 +1,10 @@
 Using Inquirer Package for Input
+
+Q#1 : What is Inquirer
+Inquirer.js is a useful NPM package to create Command Line Interface (CLI) apps with Node.js. You can make interactive interfaces by using Inquirer with questions of
+type option, list, checkbox, input, etc. This makes the CLI application built in Node.js with Inquirer.js useful. 
+
+
 The latest version (9+) of Inquirer has start using Native ECMA Script Packages. In most of our projects and assignment we will use this package.
 
 Step # 1 : Start a new project in a new folder
