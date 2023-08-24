@@ -23,26 +23,27 @@ High-performance image and video delivery and uploading at scale in Next.js powe
 - Drop-in Upload Widget
   ...all at scale with Cloudinary
 
-Step # 1 : npm install next-cloudinary
+Step # 1 : To install cloudinary use command : npm install next-cloudinary
 
 Step # 2 : Add a .env file in the project. Add following code in that file
 NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="<Your Cloud Name>"
-In the <Your Cloud Name> type the cloud name from the cloundinary sign in. After Sign In you can get this cloud name from the Cloudinary Dashboard
+In the <Your Cloud Name> type the cloud name from the cloundinary .
+For this open the site https://console.cloudinary.com/ . You can sign in using user id , using gmail or using github. After Sign go to the account and get the cloud name mentioned there. Copy that cloud name and paste it in the .env file for the NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME paramter.
 
-Step # 3 : Before we move on we have to configure upload Preset. This can be done from the settings --> Upload section. Now Click on Upload presets --> Add Upload Preset. 
-Now there are four types of settings : 
-a) Storage and Access  : Set signing mode to unsigned       Rest should remain defualt options
+Step # 3 : Before we move on we have to configure upload Preset. This can be done from the settings --> Upload section. Now Click on Upload presets --> Add Upload Preset.
+Now there are four types of settings :
+a) Storage and Access : Set signing mode to unsigned Rest should remain defualt options
 b) Media Analysis and AI : Means what to do when media is upload. Set the check box for Google Auto Tagging
 c) Upload Manipulations : default settings
-d) Upload Control: default settings 
+d) Upload Control: default settings
 Press save button to save this upload preset. Note that present name and write it in the .env file
 
-  Means how cloudinary will treat the uploaded images. Either everyone is allowed to upload or only signed ones
-Step # 3 : Getting Started with Cld Upload Button
-The CldUploadButton creates a button element that uses an instance of the Cloudinary Upload Widget to give you an easy way to add upload capabilities to your Next.js app. The CldUploadButton component wraps the CldUploadWidget component providing a pre-defined UI (a button). The same concepts apply, including having the option of using Signed or Unsigned uploads.
+Means how cloudinary will treat the uploaded images. Either everyone is allowed to upload or only signed ones
 
-Step # 4: Basic usage of the CldUploadButton
+Step # 4 : Getting Started with Cld Upload Button
+The CldUploadButton creates a button element that uses an instance of the Cloudinary Upload Widget to give you an easy way to add upload capabilities to your Next.js app. The CldUploadButton component wraps the CldUploadWidget component providing a pre-defined UI (a button). The same concepts apply, including having the option of using Signed or Unsigned uploads.
+Add following code in the page.tsx file
 import { CldUploadButton } from 'next-cloudinary';
 <CldUploadButton uploadPreset="<Upload Preset>" />
 
-Note: If using the Next.js 13 app directory, you must add the "use client" directive at the top of your file.
+Note: If using the Next.js 13 app directory, you must add the "use client" directive at the top of your file on the main page.tsx file. Set the uploadPreset value to the Preset which you set in the Step # 3. In this case it is.
