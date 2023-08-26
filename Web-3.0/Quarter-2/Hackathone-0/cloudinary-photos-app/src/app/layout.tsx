@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { SideMenu } from "@/components/ui/side-menu-bar";
 
 import {
   NavigationMenu,
@@ -15,7 +16,6 @@ import {
   NavigationMenuTrigger,
   NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
-import { SidebarNav } from "@/components/ui/side-menu-bar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -41,6 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <div className="flex items-center  bg-slate-200">
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
@@ -52,9 +53,13 @@ export default function RootLayout({
 
             <NavigationMenuItem> Photo Galley App </NavigationMenuItem>
           </NavigationMenuList>
-        </NavigationMenu>
+          </NavigationMenu>
+        </div>
+        <div className="flex">
+          <SideMenu></SideMenu>
 
-        <div>{children}</div>
+          <div className=" w-full px-4 pt-4">{children}</div>
+        </div>
       </body>
     </html>
   );

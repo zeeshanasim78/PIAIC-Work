@@ -1,6 +1,11 @@
 Hackathone-0 : Photo Album Next.js Tutorial (with Server Actions, Cloudinary, Shadcn)
 https://www.youtube.com/watch?v=MC6D4vylKTc
 
+Sites to Remeber :  
+a) https://next.cloudinary.dev/ : For Cloudinary componets documentation
+b) https://console.cloudinary.com/ : To access tje Cloudinary console and view details / settingss/ Assets
+c) https://ui.shadcn.com/ : For Shadcn Documentation
+
 Note : We can configure this project to a git remote repo as:
 i) git status : To check the git status
 ii) git remote -V : To check git remote location
@@ -136,4 +141,49 @@ We will use following components at start Navigation Menue and Avatar. We need t
 
 > > Now Add the NAvigation Menu and the Avatar in the layout.tsx in the src/app folder so that these menu and avatar are displayed on all the pages.
 
-Step 9 # Adding Side Bar in the Applicaiton
+Step 9 # Adding Side Menu in the Applicaiton
+Craete a new component in the components\ui folder by creating a new tsx file.
+Create a function SideMenu as :
+export function SideMenu() {
+  return (
+  )
+}
+Copy a sample code of a Side Menu from the Shadcan Page Code
+https://github.com/shadcn-ui/ui/blob/main/apps/www/app/examples/music/components/sidebar.tsx
+and it inside the return function
+Now to arrange the side menu and upload image functionality side by side place it inside a div and add flex in the layout.tsx file so that it is applied to all pages:
+
+ <div className="flex">
+      <SideMenu></SideMenu>
+      <div>{children}</div>
+  </div>
+
+To reduce the width of the menue we can use w-1/5 in the starting div of the menu:<div className="pb-12 w-1/5">
+
+Step # 10 : Changing the icons of the SideMenu Items
+Visit https://heroicons.com/ to get the image urls in svg format and then paste them in the SideMenuBar component
+To add the have the space between button and icon add  flex gap-2 in the button className
+
+Step # 11 : Now lets design the galley page
+Add a folder named gallery in the app folder
+Now add page.tsx file in it.
+
+Now create a defualt function named GalleryPage() and write following code in the page.tsx of Gallery folder as :
+export default function GalleryPage() {}  . Also add the upload button code here in this page as the given code:
+<section>
+    <div className="flex justify-between">
+        <h1 className="text-2xl font-bold">Gallery</h1>
+        <Button asChild>
+            <div className="flex gap-ss2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                </svg>
+                <CldUploadButton
+                    onUpload={(result: UploadReslut) => {
+                // setImageId(result.info.public_id);
+                    }}
+                    uploadPreset="wcr0tcgy"   />
+            </div>
+        </Button>
+    </div> 
+</section>
