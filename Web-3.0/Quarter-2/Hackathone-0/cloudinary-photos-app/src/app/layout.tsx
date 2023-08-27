@@ -16,11 +16,12 @@ import {
   NavigationMenuTrigger,
   NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Photo App Galley",
+  title: "Photo App Galley by Webdevsols",
   description: "Powered by Next.JS , Cloudinary and Shadcn UI",
 };
 
@@ -39,22 +40,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body className={inter.className}>
-        <div className="flex items-center  bg-slate-200">
-        <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <Avatar>
-                <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem> Photo Galley App </NavigationMenuItem>
-          </NavigationMenuList>
-          </NavigationMenu>
+        {/* The Top Bar  */ }
+        <div className="border-b ">
+          <div className="flex h-16 items-center px-4 container mx-auto">
+            Photo App Galley developed by Webdevsols
+            {/* <TeamSwitcher />
+            <MainNav className="mx-6" /> */}
+            <div className="ml-auto flex items-center space-x-4"> 
+                 <Avatar>
+                    <AvatarImage src="https://github.com/shadcn.png" />
+                    <AvatarFallback>CN</AvatarFallback>
+                  </Avatar>
+           {/*    <Search />
+              <UserNav /> */}
+            </div>
+          </div>
         </div>
+
         <div className="flex">
           <SideMenu></SideMenu>
 

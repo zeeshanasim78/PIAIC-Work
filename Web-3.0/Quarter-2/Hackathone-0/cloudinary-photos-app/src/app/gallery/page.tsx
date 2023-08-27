@@ -1,31 +1,28 @@
-"use client";
-import { CldUploadButton } from "next-cloudinary";
-import { UploadReslut } from "../page";
-import { Button } from "@/components/ui/button";
+import UploadButton from "./upload-button";
+import cloudinary from "cloudinary";
 
-export default function GalleryPage() {
+export default async function GalleryPage() {
+    
+    type SearchResult = {
+        public_id: string;
+    }
+    const results = await cloudinary.v2.search
+        .expression('resource_type:image')
+        .sort_by('public_id', 'desc')
+        .max_results(30)
+        .execute() as {resources : SearchResult[]};
+    
     return (
        <section>
             <div className="flex justify-between">
                 <h1 className="text-2xl font-bold">Gallery</h1>
-                <Button asChild>
+             <UploadButton/>
+                {results.map(result => {
+                    <div>
 
-                    <div className="flex gap-ss2">
-
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
-                        </svg>
-
-                        <CldUploadButton
-                            onUpload={(result: UploadReslut) => {
-                        // setImageId(result.info.public_id);
-                            }}
-                            uploadPreset="wcr0tcgy"
-
-                        />
                     </div>
-                </Button>
-                
+                }   
+            }
             </div> 
         </section>
     )

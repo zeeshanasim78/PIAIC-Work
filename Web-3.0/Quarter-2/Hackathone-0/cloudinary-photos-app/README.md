@@ -187,3 +187,53 @@ export default function GalleryPage() {}  . Also add the upload button code here
         </Button>
     </div> 
 </section>
+
+Step # 12 : Fetch all images in the library
+The Cloudinary API search method allows you fine control on filtering and retrieving information on all the assets in your product environment with the help of query expressions in a Lucene-like query language. 
+https://console.cloudinary.com/documentation/search_api
+But the issue is that works as server component whereas we have used "use client" in the galley\page.tsx file.
+To resolve that issue we will add a new file in the galley folder as upload-button.tsx copy paste all the code of page.tsx file and then paste in it. Change the function name to UploadButton , remove the inital section and div tags till the <Button> tag from that file
+Now in the page.tsx file remove the "use client" and all import reference of client components such that only following code remains in the project:
+
+import UploadButton from "./upload-button";
+export default async function GalleryPage() {
+    return (
+       <section>
+            <div className="flex justify-between">
+                <h1 className="text-2xl font-bold">Gallery</h1>
+             <UploadButton/>
+                
+            </div> 
+        </section>
+    )
+}
+Now save and run the project . It should work fine. 
+Now to add the Search API code inside the page.tsx copy the code from above mention url and paste it inside the GalleryPage() before the return() code.Before that add the async in the function . Add t
+
+const result = await cloudinary.v2.search
+  .expression('resource_type:image')
+  .sort_by('public_id','desc')
+  .max_results(30)
+  .execute()
+
+You alse need to install cloudinary as : npm install cloudinary
+adn then import the cloudinary as : import cloudinary from "cloudinary";
+Now we also need to add some environment variables as mentioned at https://console.cloudinary.com/documentation/node_quickstart which is set CLOUDINARY_URL=cloudinary://API_KEY:API_SECRET@CLOUD_NAME in the .env file
+We will specify the same cloud name that is already mentioned in the .env file
+From the dashboard we will get the API Key and API Secret key and mention in the  .env file as
+
+Step # 13  : to store the search result we will create a type SearchResults and use it as under:
+    type SearchResult = {
+        public_id: string;
+}
+Now get the Search results as :
+    const result = await cloudinary.v2.search
+        .expression('resource_type:image')
+        .sort_by('public_id', 'desc')
+        .max_results(30)
+        .execute() as SearchResult[];
+
+
+41
+
+
