@@ -12,26 +12,26 @@ type Cart = {
 }
 
 // Create a variable of type Cart that can contain Products Array
-let myCart: Cart;
+let cart1: Cart;
 
 // Initialize the Cart variable with products array
-myCart = { products: [] };
+cart1 = { products: [] };
 
-myCart.products[0] = {
+cart1.products[0] = {
     id: 10,
     name: "Pencil",
     price: 15,
     catogory: "Stationary"
 }
 
-myCart.products[1] = {
+cart1.products[1] = {
     id: 15,
     name: "Shirt",
     price: 1500,
     catogory: "Clothes"
 }
 
-myCart.products[2] = {
+cart1.products[2] = {
     id: 20,
     name: "Devanci Code",
     price: 4500,
@@ -51,11 +51,33 @@ type Order = {
     custCart: Cart
 }
 
+// Initialize the Order type variable
+let cust1: ICustomer = {} as ICustomer;
+
+// Set Value for the Customer
+cust1.id = 100;
+cust1.name = 'Asad';
+cust1.email = 'asad@gmail.com';
+
 // Create a variable of type Order
-let ord1: Order;
-
-// Initialize the Cart variable with products array
-myCart = { products: [] };
-ord1 = { customer:  , custCart };
+let ord1: Order = {} as Order;
+ord1.custCart = cart1;
+ord1.customer = cust1;
 
 
+function calcCartAmount(cust: ICustomer, cart: Cart) {
+    console.log(`Hello, ${cust.name}!`);
+    console.log(`You added ${cart.products.length} items in the cart...`);
+
+    let billAmount = 0;
+    var counter: number = 0;
+
+    for (counter = 0; counter < cart.products.length; counter++) {
+        console.log(`Product # ${counter + 1} , Product Name: ${cart.products[counter].name} and its Price is ${cart.products[counter].price} !`);
+        billAmount = billAmount + cart.products[counter].price;
+    }
+
+    console.log(` ${cust.name} added ${cart.products.length} products in cart and his total bill is ${billAmount} !`);
+}
+
+calcCartAmount(ord1.customer, ord1.custCart);
