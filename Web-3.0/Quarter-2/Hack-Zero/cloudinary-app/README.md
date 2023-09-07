@@ -28,7 +28,9 @@ High-performance image and video delivery and uploading at scale in Next.js powe
 - Drop-in Upload Widget
   ...all at scale with Cloudinary
 
-Step # 1 : To install cloudinary use command : npm install next-cloudinary
+Step # 1(a) : Use the command to createa a new Project npx create-next-app@latest cloudinary-app . Set the default options for the project. 
+
+Step # 1(b) Install the Cloudinary. To install cloudinary use command : npm install next-cloudinary
 
 Step # 2 : Add a .env file in the project. Add following code in that file
 NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="<Your Cloud Name>"
@@ -47,6 +49,7 @@ Means how cloudinary will treat the uploaded images. Either everyone is allowed 
 
 Step # 4 : Getting Started with Cld Upload Button
 The CldUploadButton creates a button element that uses an instance of the Cloudinary Upload Widget to give you an easy way to add upload capabilities to your Next.js app. The CldUploadButton component wraps the CldUploadWidget component providing a pre-defined UI (a button). The same concepts apply, including having the option of using Signed or Unsigned uploads.
+
 Add following code in the page.tsx file
 import { CldUploadButton } from 'next-cloudinary';
 <CldUploadButton uploadPreset="<Upload Preset>" />
@@ -101,7 +104,7 @@ return (
 onUpload={(result: UploadReslut) => {
 setImageId(result.info.public_id);
 }}
-uploadPreset="wcr0tcgy"
+uploadPreset="Your Upload Preset Name"
 />
 {imageId && (
 <CldImage
@@ -133,13 +136,34 @@ we can blur faces , removes background , tint the image colors etc
 
 Step 8 : Now install the Shadcn Library here so that we can use a component library that in the project. To install Shadcn in this project we will write command : npx shadcn-ui@latest init
 
-We will use following components at start Navigation Menue and Avatar. We need to first intsall these components as:
-
-> > npx shadcn-ui@latest add navigation-menu
-> > npx shadcn-ui@latest add avatar
-> > npx shadcn-ui@latest add button
-
-> > Now Add the NAvigation Menu and the Avatar in the layout.tsx in the src/app folder so that these menu and avatar are displayed on all the pages.
+The best thing for the Shadcn website is that you can view code. Now from view code open the pasge.tsx file and copy the code for the menu which is like and paste it in the src\app\layout.tsx as we want to display this menu on all files
+  <div className='border-b '>
+    <div className='flex h-16 items-center px-4 container mx-auto'>
+      Photo App 
+      <div className=' ml-auto flex items-center space-x-4'>
+      World
+      </div>
+    </div>
+  </div>
+  
+We can add different Shahcn components for the time being we will use Avatar. We need to first intsall this component as: npx shadcn-ui@latest add avatar
+Now add the Avatar component code from the Shadcn website and change the title so the code of layout.tsx file inside the return will become :
+    <html lang="en" className='dark'>
+      <body className={inter.className}>
+        <div className='border-b '>
+          <div className='flex h-16 items-center px-4 container mx-auto'>
+            Photo App Developed by WebDevSols
+            <div className=' ml-auto flex items-center space-x-4'>
+                <Avatar>
+                  <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+            </div>
+          </div>
+        </div>
+        {children}
+      </body>
+    </html>
 
 Step 9 # Adding Side Menu in the Applicaiton
 Craete a new component in the components\ui folder by creating a new tsx file.
@@ -148,9 +172,10 @@ export function SideMenu() {
   return (
   )
 }
-Copy a sample code of a Side Menu from the Shadcan Page Code
-https://github.com/shadcn-ui/ui/blob/main/apps/www/app/examples/music/components/sidebar.tsx
-and it inside the return function
+Copy a sample code of a Side Menu from the Shadcan Page Code https://github.com/shadcn-ui/ui/blob/main/apps/www/app/examples/music/components/sidebar.tsx  and copy it in return ( ) inside the sidemenu.tsx created in component/ui
+folder . 
+
+We will also need to install Shadcn Button as it is used int he Menu as : npx shadcn-ui@latest add button
 Now to arrange the side menu and upload image functionality side by side place it inside a div and add flex in the layout.tsx file so that it is applied to all pages:
 
  <div className="flex">
@@ -165,28 +190,34 @@ Visit https://heroicons.com/ to get the image urls in svg format and then paste 
 To add the have the space between button and icon add  flex gap-2 in the button className
 
 Step # 11 : Now lets design the galley page
-Add a folder named gallery in the app folder
-Now add page.tsx file in it.
+Add a folder named gallery in the app folder and Now add page.tsx file in it.
 
 Now create a defualt function named GalleryPage() and write following code in the page.tsx of Gallery folder as :
 export default function GalleryPage() {}  . Also add the upload button code here in this page as the given code:
-<section>
-    <div className="flex justify-between">
-        <h1 className="text-2xl font-bold">Gallery</h1>
-        <Button asChild>
-            <div className="flex gap-ss2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
-                </svg>
-                <CldUploadButton
-                    onUpload={(result: UploadReslut) => {
-                // setImageId(result.info.public_id);
-                    }}
-                    uploadPreset="wcr0tcgy"   />
-            </div>
-        </Button>
-    </div> 
-</section>
+export default function GalleryPage()
+{
+    return (
+       <section>
+            <div className="flex justify-between">
+                <h1 className="text-2xl font-bold">Gallery</h1>
+                <Button asChild>
+                    <div className="flex gap-ss2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                        </svg>
+                        <CldUploadButton
+                            onUpload={(result: UploadReslut) => {
+                        // setImageId(result.info.public_id);
+                            }}
+                            uploadPreset="y5i9wcgn"  />
+                    </div>
+                </Button>
+            </div> 
+        </section>
+    );
+}
+
+
 
 Step # 12 : Fetch all images in the library
 The Cloudinary API search method allows you fine control on filtering and retrieving information on all the assets in your product environment with the help of query expressions in a Lucene-like query language. 
@@ -208,19 +239,43 @@ export default async function GalleryPage() {
     )
 }
 Now save and run the project . It should work fine. 
-Now to add the Search API code inside the page.tsx copy the code from above mention url and paste it inside the GalleryPage() before the return() code.Before that add the async in the function . Add t
+Now to add the Search API code inside the page.tsx copy the code from above mention url and paste it inside the GalleryPage() before the return() code.Before that add the async in the function . Add the code as under:
 
-const result = await cloudinary.v2.search
+export default async function GalleryPage()
+{
+    const result = await cloudinary.v2.search
   .expression('resource_type:image')
   .sort_by('public_id','desc')
   .max_results(30)
   .execute()
+  .then(result=>console.log(result));
+
+    return (
+       <section>
+            <div className="flex justify-between">
+                <h1 className="text-2xl font-bold">Gallery</h1>
+             <UploadButton></UploadButton>
+            </div> 
+        </section>
+    );
+}
 
 You alse need to install cloudinary as : npm install cloudinary
-adn then import the cloudinary as : import cloudinary from "cloudinary";
+
+and then import the cloudinary as : import cloudinary from "cloudinary";
+
+Step # 13 : Add Environment Variable
 Now we also need to add some environment variables as mentioned at https://console.cloudinary.com/documentation/node_quickstart which is set CLOUDINARY_URL=cloudinary://API_KEY:API_SECRET@CLOUD_NAME in the .env file
 We will specify the same cloud name that is already mentioned in the .env file
 From the dashboard we will get the API Key and API Secret key and mention in the  .env file as
+
+
+
+
+
+46
+
+
 
 Step # 13  : to store the search result we will create a type SearchResults and use it as under:
     type SearchResult = {

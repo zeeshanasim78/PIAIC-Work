@@ -8,6 +8,6 @@ export function CloudinaryImage(props: any) {
         <CldImage
             src={...props}
             alt="Description of my image"
-        />
+                  />
     );
 }
