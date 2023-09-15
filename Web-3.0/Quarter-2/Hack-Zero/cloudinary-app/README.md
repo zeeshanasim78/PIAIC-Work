@@ -266,29 +266,106 @@ and then import the cloudinary as : import cloudinary from "cloudinary";
 
 Step # 13 : Add Environment Variable
 Now we also need to add some environment variables as mentioned at https://console.cloudinary.com/documentation/node_quickstart which is set CLOUDINARY_URL=cloudinary://API_KEY:API_SECRET@CLOUD_NAME in the .env file
-We will specify the same cloud name that is already mentioned in the .env file
-From the dashboard we will get the API Key and API Secret key and mention in the  .env file as
+We will specify the same cloud name that is already mentioned in the .env file . From the dashboard we will get the API Key and API Secret key and mention in the  .env file.
 
-
-
-
-
-46
-
-
-
-Step # 13  : to store the search result we will create a type SearchResults and use it as under:
+Step # 14  : To store the search result we will create a type SearchResults and use it as under:
     type SearchResult = {
         public_id: string;
 }
 Now get the Search results as :
-    const result = await cloudinary.v2.search
+  const results = await(cloudinary.v2.search
         .expression('resource_type:image')
         .sort_by('public_id', 'desc')
         .max_results(30)
-        .execute() as SearchResult[];
+        .execute()) as { resources: SearchResult[] };
+
+Now  also update the return code in the GalleyPage() as :
+ return (
+       <section>
+            <div className="flex flex-col gap-8">
+                <div className="flex justify-between">
+                    <h1 className="text-2xl font-bold">Gallery</h1>
+                    <UploadButton />
+                </div>
+                <div className="grid grid-cols-5 gap-3">
+               
+                    {
+                        results.resources.map((result) => (
+                            <CloudinaryImage
+                                key={result.public_id}
+                                src={result.public_id}
+                                width="200"
+                                height="200"
+                                alt="An image of something"
+                           />
+                        ))
+                    }
+                </div>
+                
+            </div> 
+        </section>
+    );        
 
 
-41
+Step # 15  : Now we want to add auto images refresh facility so that as soon as we upload a image it is displayed on the Gallery. For this we need to make two changes :
+(a) change the sort to created_at instead of public_id const results = await(cloudinary.v2.search
+        .expression('resource_type:image')
+        .sort_by('created_at', 'desc')
+        .max_results(30)
+        .execute()) as { resources: SearchResult[] };
+
+(b) From the upload button code add the following
+    import { useRouter } from "next/navigation";
+    const router = useRouter(); inside the UploadButton()
+and inside the <CldUploadButton  use router.refresh()
+
+It should work now...
+
+Step # 16 : Add the functionality to mark images favourites
+First go to the Component Folder and add folder icons
+Now add a file hearts.tsx in it. Write the following code
+export function Heart() {
+   return ( 
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none"   viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+    </svg>
+  )
+}
+
+Now we can use that component in the sidemenu.tsx  and cloudinary-image.tsx as :
+import { Heart } from "@/components/icons/hearts"
+
+Go to inside the cloudinary-image.tsx
+export function CloudinaryImage(props : any) {
+    return (
+       <div className="relative">
+            <CldImage {...props} />
+            <Heart className="absolute top-2 right-2"/>
+       </div>
+    )
+}
+
+Go to the Hearts.tsx and add following code
+import { ComponentProps } from "react"
+export function Heart(props: ComponentProps<"div">) {
+  return (
+    <div {...props}>
+      <svg
+         xmlns="http://www.w3.org/2000/svg" fill="none"
+        viewBox="0 0 24 24" stroke-width="1.5"
+        stroke="currentColor" class="w-6 h-6">
+         <path stroke-linecap="round" stroke-linejoin="round"
+          d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+        </svg>
+  </div>
+)
+}
+
+Step # 17 : Add the functionality to mark any image as FAvourite
+
+1.1
+
+
+
 
 

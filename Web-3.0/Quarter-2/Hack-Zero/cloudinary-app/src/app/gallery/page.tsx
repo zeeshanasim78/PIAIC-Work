@@ -10,7 +10,7 @@ export default async function GalleryPage()
 {
     const results = await(cloudinary.v2.search
         .expression('resource_type:image')
-        .sort_by('public_id', 'desc')
+        .sort_by('created_at', 'desc')
         .max_results(30)
         .execute()) as { resources: SearchResult[] };
 
@@ -28,6 +28,7 @@ export default async function GalleryPage()
                             <CloudinaryImage
                                 key={result.public_id}
                                 src={result.public_id}
+                                publicId={result.public_id}
                                 width="200"
                                 height="200"
                                 alt="An image of something"

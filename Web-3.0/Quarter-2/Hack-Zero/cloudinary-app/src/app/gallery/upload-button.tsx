@@ -2,9 +2,11 @@
 import { Button } from "@/components/ui/button";
 import { CldUploadButton } from "next-cloudinary";
 import { UploadReslut } from "../page";
+import { useRouter } from "next/navigation";
 
 export default function UploadButton()
 {
+    const router = useRouter();
     return (
                   <Button asChild>
                     <div className="flex gap-2">
@@ -14,6 +16,7 @@ export default function UploadButton()
                         <CldUploadButton
                             onUpload={(result: UploadReslut) => {
                         // setImageId(result.info.public_id);
+                            router.refresh();
                             }}
                             uploadPreset="y5i9wcgn"  />
                     </div>

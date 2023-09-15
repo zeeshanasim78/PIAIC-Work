@@ -1,8 +1,9 @@
 {
-  "name": "interface",
-  "version": "1.0.0",
+  "name": "cart-functionality-using-interfaces-by-webdevsols",
+  "version": "1.6.0",
   "description": "",
   "main": "index.js",
+  "bin": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
