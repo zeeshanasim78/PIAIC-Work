@@ -1,0 +1,27 @@
+How to Use Chat Dev
+Step # 1 : Install Full version of Anaconda
+
+Step # 2 : Clone the repo from https://github.com/OpenBMB/ChatDev.git
+This can be done using command on comadn prompt : git clone https://github.com/OpenBMB/ChatDev.git
+
+Step # 3 : Create a new environment for this project using command :
+Note You have to open the Anaconda Power shell and in that window give this command
+conda create -n ChatDev_conda_env python=3.9 -y
+
+Step # 4 : Now next step is to activate the environemnt as : conda activate ChatDev_conda_env
+
+Step # 5 : Now make the ChatDev directory your current directy in the Anaconda power shell prompt
+window where you activated the newly create environment. This can be done using cd (change directory)
+directory name.
+
+Step # 6 : Now you have to create a new account in the open ai but give new mobile number and email address
+
+Step # 7 : Generate a new API Key from the View API Keys. The key we generated is as under :
+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
+
+Step # 8 :  Now install the requirements using command : pip3 install -r requirements.txt
+
+Step # 9 : Set the environment variable from the anaconda power shell
+$env:OPENAI_API_KEY="your_OpenAI_API_key"
+
+Step # 10 : 

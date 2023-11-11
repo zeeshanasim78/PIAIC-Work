@@ -1,0 +1,23 @@
+Go to the Github URL
+https://github.com/panaverse/learn-modern-python
+
+Step # 1 : Open the anaconda prompt from run
+
+Step # 2 : Create a new environment using Python version 3.12
+conda create --name myenv3_12 python=3.12
+
+Step # 3: To view the Envirnonments already created : conda env list
+
+Step # 4 : Activate the environment using command : conda activate myenv3_12 
+
+Step # 5: TO check the Python version use command : python --version
+
+Step # 6 : Create a file with extension .py
+
+Step # 7 : Write Code print("Hello Python world!") as save the file first.py
+
+Step # 8 : TO run the code on the prompt type commanf  : pyhton first.py
+
+
+python first.py  
+

@@ -1,0 +1,607 @@
+https://github.com/panaverse/learn-generative-ai/tree/main/step00_hello_core_concepts
+
+Concept00: https://github.com/panaverse/learn-generative-ai/blob/main/step00_hello_core_concepts/concept00_llm_wrappers.ipynb
+Video URL : https://www.youtube.com/watch?v=aywZrzNaKjs
+
+Lang chain is an open source framework that allows developers working with AI
+to combine large language models like gbt4 with external sources of computation and
+data the framework is currently offered as a python or a JavaScript package typescript
+to be specific .
+
+In this video we're going to start unpacking the python framework and we're going to 
+ see why the popularity of the framework is exploding right now especially after the 
+ introduction of gpt4 in March 2023 to understand what.
+ 
+Why Langchain? need Lang chain fills let's have a look at a practical example so by now we all
+know that chat typically or tpt4 has an 
+impressive general knowledge we can ask
+0:47
+it about almost anything and we'll get a
+0:50
+pretty good answer
+0:51
+suppose you want to know something
+0:53
+specifically from your own data your own
+0:56
+document it could be a book a PDF file a
+0:59
+database with proprietary information
+1:02
+link chain allows you to connect a large
+1:04
+language model like dbt4 to your own
+1:07
+sources of data and we're not talking
+1:10
+about pasting a snippet of a text
+1:13
+document into the chativity prompt we're
+1:15
+talking about referencing an entire
+1:17
+database filled with your own data
+1:19
+and not only that once you get the
+1:21
+information you need you can have Lang
+1:23
+chain help you take the action you want
+1:26
+to take for instance send an email with
+1:28
+some specific information
+1:30
+and the way you do that is by taking the
+1:32
+document you want your language model to
+1:34
+reference and then you slice it up into
+1:36
+smaller chunks and you store those
+1:38
+chunks in a Victor database the chunks
+1:41
+are stored as embeddings meaning they
+1:43
+are vector representations of the text
+1:48
+this allows you to build language model
+1:50
+applications that follow a general
+1:53
+pipeline a user asks an initial question
+1:57
+this question is then sent to the
+1:59
+language model and a vector
+2:01
+representation of that question is used
+2:04
+to do a similarity search in the vector
+2:06
+database this allows us to fetch the
+2:09
+relevant chunks of information from the
+2:11
+vector database and feed that to the
+2:13
+language model as well
+2:15
+now the language model has both the
+2:17
+initial question and the relevant
+2:19
+information from the vector database and
+2:21
+is therefore capable of providing an
+2:24
+answer or take an action
+2:26
+a link chain helps build applications
+2:28
+that follow a pipeline like this and
+2:30
+these applications are both data aware
+2:33
+we can reference our own data in a
+2:35
+vector store and they are authentic they
+2:38
+can take actions and not only provide
+2:40
+answers to questions
+2:42
+and these two capabilities open up for
+2:44
+an infinite number of practical use
+2:46
+cases anything involving personal
+2:49
+assistance will be huge you can have a
+2:51
+large language model book flights
+2:53
+transfer money pay taxes now imagine the
+2:57
+implications for studying and learning
+2:58
+new things you can have a large language
+3:00
+model reference an entire syllabus and
+3:03
+help you learn the material as fast as
+3:05
+possible coding data analysis data
+3:07
+science is all going to be affected by
+3:09
+this
+3:10
+one of the applications that I'm most
+3:11
+excited about is the ability to connect
+3:14
+large language models to existing
+3:17
+company data such as customer data
+3:19
+marketing data and so on
+3:21
+I think we're going to see an
+3:22
+exponential progress in data analytics
+3:24
+and data science our ability to connect
+3:27
+the large language models to Advanced
+3:29
+apis such as metas API or Google's API
+3:32
+is really gonna gonna make things take
+3:35
+off
+3:38
+so the main value proposition of Lang
+The value proposition of Langchain
+3:40
+chain can be divided into three main
+3:42
+Concepts
+3:44
+we have the llm wrappers that allows us
+3:46
+to connect to large language models like
+3:49
+gbt4 or the ones from hugging face
+3:52
+prompt templates allows us to avoid
+3:55
+having to hard code text which is the
+3:58
+input to the llms
+4:00
+then we have indexes that allows us to
+4:02
+extract relevant information for the
+4:04
+llms the chains allows us to combine
+4:08
+multiple components together to solve a
+4:11
+specific task and build an entire llm
+4:13
+application
+4:14
+and finally we have the agents that
+4:17
+allow the llm to interact with external
+4:19
+apis
+4:22
+there's a lot to unpack in Lang chain
+4:24
+and new stuff is being added every day
+4:26
+but on a high level this is what the
+4:28
+framework looks like we have models or
+4:30
+wrappers around models we have problems
+4:33
+we have chains we have the embeddings
+4:34
+and Vector stores which are the indexes
+4:36
+and then we have the agents so what I'm
+4:39
+going to do now is I'm going to start
+4:40
+unpacking each of these elements by
+4:42
+writing code and in this video I'm going
+4:44
+to keep it high level just to get an
+4:46
+overview of the framework and a feel for
+4:49
+the different elements first thing we're
+Unpacking Langchain
+4:51
+going to do is we're going to pip
+4:52
+install three libraries we're going to
+4:54
+need python.in to manage the environment
+4:56
+file with the passwords we're going to
+4:58
+install link chain and we're going to
+5:00
+install the Pinecone client Pinecone is
+5:03
+going to be the vector store we're going
+5:04
+to be using in this video in the
+5:06
+environment file we need the open AI API
+5:09
+key we need the pine cone environment
+5:12
+and we need the pine cone API key
+5:15
+foreign once you have signed up for a
+5:18
+Pinecone account it's free the API keys
+5:21
+and the environment name is easy to find
+5:25
+same thing is true for openai just go to
+5:28
+platform.orgmaili.com account slash API
+5:30
+keys
+5:31
+let's get started so when you have the
+5:34
+keys in an environment file all you have
+5:36
+to do is use node.n and find that in to
+5:39
+get the keys and now we're ready to go
+5:41
+so we're going to start off with the
+LLM Wrappers
+5:43
+llms or the wrappers around the llms
+5:46
+then I'm going to import the open AI
+5:48
+Rubber and I'm going to instantiate the
+5:50
+text DaVinci 003 completion model and
+5:52
+ask it to explain what a large language
+5:54
+model is and this is very similar to
+5:56
+when you call the open AI API directly
+6:00
+next we're going to move over to the
+6:02
+chat model so gbt 3.5 and gbt4 are chat
+6:06
+models
+6:07
+and in order to interact with the chat
+6:09
+model through link chain we're going to
+6:11
+import a schema consisting of three
+6:13
+parts an AI message a human message and
+6:16
+a system message
+6:17
+and then we're going to import chat open
+6:19
+AI the system message is what you use to
+6:22
+configure the system when you use a
+6:23
+model and the human message is the user
+6:26
+message
+6:27
+thank you
+6:28
+to use the chat model you combine the
+6:31
+system message and the human message in
+6:33
+a list and then you use that as an input
+6:35
+to the chat model
+6:38
+here I'm using GPT 3.5 turbo you could
+6:42
+have used gpt4 I'm not using that
+6:44
+because the open AI service is a little
+6:47
+bit Limited at the moment
+6:53
+so this works no problem let's move to
+6:55
+the next concept which is prompt
+Prompts and Prompt Templates
+6:58
+templates so prompts are what we are
+7:00
+going to send to our language model but
+7:02
+most of the time these problems are not
+7:04
+going to be static they're going to be
+7:06
+dynamic they're going to be used in an
+7:07
+application and to do that link chain
+7:09
+has something called prompt templates
+7:11
+and what that allows us to do is to take
+7:13
+a piece of text and inject a user input
+7:17
+into that text and we can then format
+7:19
+The Prompt with the user input and feed
+7:22
+that to the language model
+7:25
+so this is the most basic example but it
+7:28
+allows us to dynamically change the
+7:30
+prompt with the user input
+7:40
+the third concept we want to Overlook at
+7:42
+is the concept of a chain
+Chains
+7:47
+a chain takes a language model and a
+7:49
+prompt template and combines them into
+7:51
+an interface that takes an input from
+7:53
+the user and outputs an answer from the
+7:57
+language model sort of like a composite
+7:59
+function where the inner function is the
+8:02
+prompt template and the outer function
+8:04
+is the language model
+8:06
+we can also build sequential chains
+8:08
+where we have one chain returning an
+8:10
+output and then a second chain taking
+8:12
+the output from the first chain as an
+8:14
+input
+8:16
+so here we have the first chain that
+8:18
+takes a machine learning concept and
+8:19
+gives us a brief explanation of that
+8:21
+concept the second chain then takes the
+8:24
+description of the first concept and
+8:26
+explains it to me like I'm five years
+8:28
+old
+8:32
+then we simply combine the two chains
+8:34
+the first chain called chain and then
+8:36
+the second chain called chain two into
+8:39
+an overall chain
+8:41
+and run that chain
+8:46
+and we see that the overall chain
+8:49
+returns both the first description of
+8:52
+the concept and the explain it to me
+8:55
+like I'm 5 explanation of the concept
+8:59
+all right let's move on to embeddings
+Embeddings and VectorStores
+9:01
+and Vector stores but before we do that
+9:03
+let me just change the explainer to me
+9:06
+like I'm five prompt so that we get a
+9:08
+few more words
+9:11
+I'm gonna go with 500 Words
+9:19
+all right so this is a slightly longer
+9:21
+explanation for a five-year-old
+9:27
+now what I'm going to do is I'm going to
+9:29
+check this text and I'm going to split
+9:31
+it into chunks because we want to store
+9:33
+it in a vector store in Pinecone
+9:36
+and Lang chain has a text bitter tool
+9:38
+for that so I'm going to import
+9:40
+recursive character text splitter and
+9:43
+then I'm going to spit the text into
+9:46
+chunks
+9:47
+like we talked about in the beginning of
+9:49
+the video
+9:53
+we can extract the plain text of the
+9:55
+individual elements of the list with
+9:57
+page content
+9:59
+and what we want to do now is we want to
+10:01
+turn this into an embedding which is
+10:05
+just a vector representation of this
+10:07
+text and we can use open ai's embedding
+10:09
+model Ada
+10:13
+with all my eyes model we can call embed
+10:17
+query on the raw text that we just
+10:20
+extracted from the chunks of the
+10:23
+document and then we get the vector
+10:26
+representation of that text or the
+10:28
+embedding
+10:29
+now we're going to check the chunks of
+10:32
+the explanation document and we're going
+10:33
+to store the vector representations in
+10:37
+pine cone
+10:39
+so we'll import the pine cone python
+10:42
+client and we'll import pine cone from
+10:45
+Lang chain Vector stores and we initiate
+10:47
+the pine cone client with the key and
+10:50
+the environment that we have in the
+10:52
+environment file
+10:54
+then we take the variable texts which
+10:56
+consists of all the chunks of data we
+10:59
+want to store we take the embeddings
+11:00
+model and we take an index name and we
+11:02
+load those chunks on the embeddings to
+11:05
+Pine Cone and once we have the vector
+11:07
+stored in Pinecone we can ask questions
+11:09
+about the data stored what is magical
+11:12
+about an auto encoder and then we can do
+11:15
+a similarity search in Pinecone to get
+11:18
+the answer or to extract all the
+11:20
+relevant chunks
+11:24
+if we head over to Pine Cone we can see
+11:26
+that the index is here we can click on
+11:30
+it and inspect it
+11:32
+check the index info we have a total of
+11:35
+13 vectors in the vector store
+An example of a Langchain Agent
+11:42
+all right so the last thing we're going
+11:44
+to do is we're going to have a brief
+11:45
+look at the concept of an agent
+11:48
+now if you head over to open AI chat GPT
+11:51
+plugins page you can see that they're
+11:54
+showcasing a python code interpreter
+11:58
+now we can actually do something similar
+12:00
+in langtune
+12:02
+so here I'm importing the create python
+12:04
+agent as well as the python Rebel tool
+12:06
+and the python webble from nankchain
+12:09
+then we instantiate a python agent
+12:11
+executor
+12:12
+using an open AI language model
+12:16
+and this allows us to having the
+12:17
+language model run python code
+12:19
+so here I want to find the roots of a
+12:22
+quadratic function and we see that the
+12:24
+agent executor is using numpy roots to
+12:27
+find the roots of this quadratic
+12:30
+function
+12:30
+alright so this video was meant to give
+12:32
+you a brief introduction to the Core
+12:34
+Concepts of langchain if you want to
+12:37
+follow along for a deep dive into the
+12:39
+concepts hit subscribe thanks for
+12:41
+watching
+
